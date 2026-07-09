@@ -345,9 +345,8 @@ function animate(time) {
 }
 
 if (initThree()) {
-  if (reducedMotion) {
-    renderer.render(scene, camera); // single static frame
-  } else {
+  renderer.render(scene, camera); // initial frame — shows even in background tabs
+  if (!reducedMotion) {
     window.addEventListener('pointermove', (e) => {
       pointer.tx = (e.clientX / window.innerWidth) * 2 - 1;
       pointer.ty = (e.clientY / window.innerHeight) * 2 - 1;
