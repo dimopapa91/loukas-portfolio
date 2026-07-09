@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loukas Panagiotidis — Sound Recordist & Production Sound Mixer (AMPS, MSc)</title>
+  <meta name="description" content="Loukas Panagiotidis (AMPS, MSc) — Freelance Sound Mixer & PSC Sound Recordist for feature films, TV series, documentaries, commercials and podcasts. UK based, travels worldwide." />
+  <meta property="og:title" content="LP AUDIO — Loukas Panagiotidis, Sound Recordist" />
+  <meta property="og:description" content="Location sound for film, TV, documentary & commercials. AMPS member, MSc Audio Production." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- BLEND-MODE CURSOR -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-word">
+      <span>L</span><span>P</span><span>&nbsp;</span><span>A</span><span>U</span><span>D</span><span>I</span><span>O</span>
+    </div>
+    <div class="loader-sub">rolling sound…</div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" id="top">
+    <a class="nav-logo" href="#top">LP<span class="nav-logo-dot">●</span>AUDIO</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#work">Selected Work</a>
+      <a href="#credits">Credits</a>
+      <a href="#services">Services</a>
+      <a href="#kit">Kit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="bw-toggle" id="bwToggle" title="Black & white mode" aria-label="Toggle black and white mode">
+        <span class="bw-toggle-half"></span>
+      </button>
+      <a class="btn btn-small" href="mailto:Lpanagiotidis21@gmail.com">Hire me</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-canvas-wrap" id="canvasWrap" aria-label="3D illustration of a boom operator recording sound">
+        <canvas id="scene"></canvas>
+        <div class="hero-canvas-fallback" id="canvasFallback" hidden>🎤</div>
+      </div>
+      <div class="hero-copy">
+        <div class="hero-badges">
+          <span class="badge badge-red">AMPS Member</span>
+          <span class="badge badge-blue">MSc Audio Production</span>
+          <span class="badge badge-yellow">UK · Worldwide</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-line">LOUKAS</span>
+          <span class="hero-title-line hero-title-accent">PANAGIOTIDIS</span>
+        </h1>
+        <p class="hero-role">Sound Mixer <span class="slash">//</span> PSC Sound Recordist</p>
+        <p class="hero-tag">Feature films · TV series · Documentaries · Commercials · Podcasts.
+          Boom in hand, timecode locked, always rolling.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#work">See the work ↓</a>
+          <a class="btn btn-ghost" href="https://linktr.ee/LPaudio" target="_blank" rel="noopener">Showreel & links ↗</a>
+        </div>
+        <p class="hero-hint">psst — he follows your cursor</p>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>LOCATION SOUND ✦ BOOM OPERATION ✦ 32-BIT FLOAT ✦ TIMECODE SYNC ✦ DOLBY ATMOS ✦ SOUND DESIGN ✦ ADR &amp; FOLEY ✦ PODCASTS ✦ GAME AUDIO ✦&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2 class="section-title"><span class="section-num">01</span> About</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-lead">Sound Mixer &amp; PSC Sound Recordist with credits across
+            <strong>feature films, TV series, documentaries and commercials</strong> — from
+            <strong>Emmerdale (ITV)</strong> to <strong>Amazon's Million Dollar Listing UAE</strong>
+            and a short that went to <strong>Cannes</strong>.</p>
+          <p>Loukas records dialogue you don't have to fix in post: multi-track 32-bit float,
+            clean booms, tidy lavs, rock-solid timecode. Professional and calm on strict
+            schedules and fast-paced sets, with a van-load of kit and a clean driving licence
+            (12 years) to get it there.</p>
+          <p>Beyond set, he's a full audio department in one person: post-production editing and
+            restoration (iZotope RX), sound design with Foley and ADR, Dolby Atmos mixing, game
+            audio in FMOD/Wwise/Unity, and composition — classically trained, First-Class Honours.</p>
+          <div class="about-links">
+            <a class="chip" href="https://www.imdb.com/name/nm16296893/" target="_blank" rel="noopener">🎬 IMDb</a>
+            <a class="chip" href="https://linktr.ee/LPaudio" target="_blank" rel="noopener">🔗 Linktree</a>
+            <a class="chip" href="https://vimeo.com/loukaspanagiotidis1994" target="_blank" rel="noopener">▶ Vimeo showreel</a>
+            <a class="chip" href="https://soundcloud.com/loukas-panagiotidis" target="_blank" rel="noopener">♫ SoundCloud</a>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num" data-count="40">0</span><span class="stat-label">productions recorded</span></div>
+          <div class="stat"><span class="stat-num" data-count="10">0</span><span class="stat-label">feature films</span></div>
+          <div class="stat"><span class="stat-num" data-count="12">0</span><span class="stat-label">years behind the mic*</span></div>
+          <div class="stat-foot">*and counting. ITV · Amazon · Film4 · RTP2 · UNICEF · EA Sports</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK -->
+    <section class="section section-alt" id="work">
+      <h2 class="section-title"><span class="section-num">02</span> Selected Work</h2>
+      <div class="work-grid" id="workGrid"><!-- populated by JS --></div>
+    </section>
+
+    <!-- FULL CREDITS -->
+    <section class="section" id="credits">
+      <h2 class="section-title"><span class="section-num">03</span> Full Credits</h2>
+      <div class="filters" id="filters" role="group" aria-label="Filter credits by type">
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Feature Film">Features</button>
+        <button class="filter-btn" data-filter="TV">TV</button>
+        <button class="filter-btn" data-filter="Documentary">Docs</button>
+        <button class="filter-btn" data-filter="Commercial">Commercials</button>
+        <button class="filter-btn" data-filter="Short Film">Shorts</button>
+        <button class="filter-btn" data-filter="Other">Other</button>
+      </div>
+      <ul class="credits-list" id="creditsList"><!-- populated by JS --></ul>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section-alt" id="services">
+      <h2 class="section-title"><span class="section-num">04</span> Services</h2>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">🎙️</div><h3>Location Sound</h3>
+          <p>Multi-track recording on Sound Devices 633 (32-bit float), boom operation, lav micing, audio monitoring distribution for the whole set.</p></div>
+        <div class="service-card"><div class="service-icon">⏱️</div><h3>Timecode &amp; Sync</h3>
+          <p>Frame-accurate timecode across cameras and sound with Deity TC-1 sync boxes. Post drops together like magic.</p></div>
+        <div class="service-card"><div class="service-icon">🎧</div><h3>Post-Production</h3>
+          <p>Dialogue editing and mixing, audio restoration, normalization and noise reduction in iZotope RX Advanced &amp; Audition.</p></div>
+        <div class="service-card"><div class="service-icon">👣</div><h3>Sound Design · Foley · ADR</h3>
+          <p>Advanced sound design for media using Foley art and SFX. Full ADR services available.</p></div>
+        <div class="service-card"><div class="service-icon">🌀</div><h3>Dolby Atmos &amp; Music</h3>
+          <p>Immersive Atmos mixing, plus composing, arranging and orchestrating for film — stereo and 5.1. Pro Tools certified (AVID).</p></div>
+        <div class="service-card"><div class="service-icon">🎮</div><h3>Game Audio &amp; Podcasts</h3>
+          <p>Scoring and sound design in FMOD, Wwise and Unity. Multi-mic podcast capture with full redundancy.</p></div>
+      </div>
+    </section>
+
+    <!-- KIT -->
+    <section class="section" id="kit">
+      <h2 class="section-title"><span class="section-num">05</span> The Kit Bag</h2>
+      <p class="kit-intro">Core owned kit — specialist extras can be sub-hired per job.</p>
+      <div class="kit-grid">
+        <div class="kit-card"><h3>Recorder</h3><ul>
+          <li>Sound Devices 633 multichannel recorder <em>(32-bit float)</em></li></ul></div>
+        <div class="kit-card"><h3>Wireless</h3><ul>
+          <li>2× Wisycom MCR42 dual receivers</li>
+          <li>4× Wisycom MTP40s transmitters <em>(50mW)</em></li></ul></div>
+        <div class="kit-card"><h3>Lavaliers</h3><ul>
+          <li>4× DPA 6060</li>
+          <li>4× Sanken COS-11D</li></ul></div>
+        <div class="kit-card"><h3>Boom Mics</h3><ul>
+          <li>2× Sennheiser MKH50 super-cardioid</li>
+          <li>1× Sennheiser MKH416 shotgun</li></ul></div>
+        <div class="kit-card"><h3>Timecode</h3><ul>
+          <li>3× Deity TC-1 sync generators</li></ul></div>
+        <div class="kit-card"><h3>Comms / IFB</h3><ul>
+          <li>5× Sennheiser SK2000/EK2000 IEM interruptible foldback</li></ul></div>
+      </div>
+      <div class="edu-strip">
+        <h3>Education &amp; Certs</h3>
+        <div class="edu-items">
+          <span class="chip">MSc Audio Production — Salford '23</span>
+          <span class="chip">BA Audio for Media — First-Class Hons</span>
+          <span class="chip">AVID Certified Pro Tools Specialist</span>
+          <span class="chip">Dante Level 1 (Audinate)</span>
+          <span class="chip">LLCM — London College of Music</span>
+          <span class="chip">AMPS Member</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-contact" id="contact">
+      <h2 class="contact-big">LET'S ROLL<br />SOUND.</h2>
+      <p class="contact-sub">Available for features, TV, docs, commercials &amp; podcasts — UK based, happy to travel.</p>
+      <div class="contact-actions">
+        <a class="btn btn-big" href="mailto:Lpanagiotidis21@gmail.com">Lpanagiotidis21@gmail.com</a>
+        <a class="btn btn-big btn-ghost" href="tel:+447470297159">+44 (0)7470 297 159</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.imdb.com/name/nm16296893/" target="_blank" rel="noopener">IMDb</a> ·
+        <a href="https://linktr.ee/LPaudio" target="_blank" rel="noopener">Linktree</a> ·
+        <a href="https://vimeo.com/loukaspanagiotidis1994" target="_blank" rel="noopener">Vimeo</a> ·
+        <a href="https://soundcloud.com/loukas-panagiotidis" target="_blank" rel="noopener">SoundCloud</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Loukas Panagiotidis — LP Audio</span>
+    <span>Sound Recordist · AMPS · MSc</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
