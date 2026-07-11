@@ -375,7 +375,12 @@ setTimeout(dismissLoader, 2500); // fallback if load never fires
 document.querySelectorAll('a[href="#top"]').forEach((a) => {
   a.addEventListener('click', (e) => {
     e.preventDefault();
+    const startY = window.scrollY;
     window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+    // fallback: some browsers disable smooth scrolling entirely — jump instead
+    setTimeout(() => {
+      if (window.scrollY >= startY && startY > 0) window.scrollTo(0, 0);
+    }, 400);
   });
 });
 
