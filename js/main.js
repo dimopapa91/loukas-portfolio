@@ -379,7 +379,7 @@ document.querySelectorAll('a[href="#top"]').forEach((a) => {
     window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
     // fallback: some browsers disable smooth scrolling entirely — jump instead
     setTimeout(() => {
-      if (window.scrollY >= startY && startY > 0) window.scrollTo(0, 0);
+      if (window.scrollY >= startY && startY > 0) window.scrollTo({ top: 0, behavior: 'instant' });
     }, 400);
   });
 });
