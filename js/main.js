@@ -371,6 +371,14 @@ function dismissLoader() {
 window.addEventListener('load', () => setTimeout(dismissLoader, 500));
 setTimeout(dismissLoader, 2500); // fallback if load never fires
 
+/* Back to top — explicit scroll (fragment nav to sticky/empty anchors is unreliable) */
+document.querySelectorAll('a[href="#top"]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+  });
+});
+
 /* B/W mode toggle (Patrappa homage) */
 document.getElementById('bwToggle').addEventListener('click', () => {
   document.documentElement.classList.toggle('bw-mode');
