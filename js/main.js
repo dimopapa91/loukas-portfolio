@@ -222,9 +222,15 @@ function buildCharacter() {
   /* --- boom rig: pole + windshield + arms + hands (sways as one) --- */
   boomRig = new THREE.Group();
   const poleStart = V(-0.55, 1.95, 0.3);
-  const poleEnd = V(0.3, 3.75, 0.15);
+  const poleEnd = V(0.55, 4.35, 0.1);
   boomRig.add(limb(poleStart, poleEnd, 0.035, mat('pole'), false));
+  // windshield (dead cat) at the tip
+  const wind = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 0.35, 6, 14), mat('windshield'));
+  wind.position.copy(poleEnd);
   const poleDir = new THREE.Vector3().subVectors(poleEnd, poleStart).normalize();
+  wind.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), poleDir);
+  wind.position.add(poleDir.clone().multiplyScalar(0.25));
+  boomRig.add(addOutline(wind, 1.07));
   // hands gripping the pole
   const lerp = (a, b, t) => new THREE.Vector3().lerpVectors(a, b, t);
   const handL = lerp(poleStart, poleEnd, 0.08);
@@ -236,8 +242,8 @@ function buildCharacter() {
   boomRig.add(limb(V(0.52, 2.05, 0), handR, 0.13, mat('sleeve')));
   g.add(boomRig);
 
-  /* --- sound rings pulsing from the pole tip --- */
-  const micTip = poleEnd.clone().add(poleDir.clone().multiplyScalar(0.1));
+  /* --- sound rings pulsing from the mic --- */
+  const micTip = poleEnd.clone().add(poleDir.clone().multiplyScalar(0.45));
   for (let i = 0; i < 3; i++) {
     const ring = new THREE.Mesh(
       new THREE.TorusGeometry(0.28, 0.025, 8, 32),
@@ -274,8 +280,8 @@ function initThree() {
 
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(38, 1, 0.1, 50);
-  camera.position.set(0, 2.2, 7.9);
-  camera.lookAt(0, 1.95, 0);
+  camera.position.set(0, 2.3, 8.8);
+  camera.lookAt(0, 2.15, 0);
 
   scene.add(new THREE.AmbientLight(0xffffff, 1.1));
   const key = new THREE.DirectionalLight(0xffffff, 1.6);
