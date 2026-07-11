@@ -373,7 +373,7 @@ setTimeout(dismissLoader, 2500); // fallback if load never fires
 
 /* B/W mode toggle (Patrappa homage) */
 document.getElementById('bwToggle').addEventListener('click', () => {
-  document.body.classList.toggle('bw-mode');
+  document.documentElement.classList.toggle('bw-mode');
 });
 
 /* Marquee — duplicate for seamless loop */

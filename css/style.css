@@ -17,7 +17,8 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; transition: filter 0.6s ease; }
+html.bw-mode { filter: grayscale(1) contrast(1.05); }
 section[id] { scroll-margin-top: 84px; }
 
 body {
@@ -26,12 +27,10 @@ body {
   color: var(--ink);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: filter 0.6s ease;
   /* halftone comic dots */
   background-image: radial-gradient(rgba(23, 19, 15, 0.07) 1.2px, transparent 1.2px);
   background-size: 22px 22px;
 }
-body.bw-mode { filter: grayscale(1) contrast(1.05); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
