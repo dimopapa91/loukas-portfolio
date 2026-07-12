@@ -164,11 +164,91 @@ a.chip:hover { transform: translateY(-3px) rotate(-1deg); }
   text-shadow: 4px 4px 0 var(--ink);
   -webkit-text-stroke: 1px var(--ink);
 }
-.hero-role { font-size: clamp(1.1rem, 2.2vw, 1.5rem); font-weight: 700; margin-top: 18px; }
-.hero-role .slash { color: var(--blue); }
 .hero-tag { margin-top: 12px; font-size: 1.05rem; max-width: 48ch; }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
 .hero-hint { margin-top: 22px; font-size: 0.85rem; opacity: 0.6; font-style: italic; }
+
+
+/* ============ CLAPPERBOARD (hero identity) ============ */
+.clapper {
+  max-width: 560px;
+  border: var(--border); border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transform: rotate(-1.2deg);
+  background: var(--ink);
+}
+.clapper-stick {
+  height: 34px;
+  background: repeating-linear-gradient(
+    -55deg,
+    #ffc93c 0 26px, #17130f 26px 30px,
+    #2e5bff 30px 56px, #17130f 56px 60px,
+    #7ed957 60px 86px, #17130f 86px 90px,
+    #ff4d2e 90px 116px, #17130f 116px 120px,
+    #fffdf8 120px 146px, #17130f 146px 150px
+  );
+  border-bottom: 3px solid var(--ink);
+}
+.clapper-stick-top {
+  transform-origin: left bottom;
+  animation: clap 6s ease-in-out infinite;
+  border-radius: 10px 10px 0 0;
+}
+@keyframes clap {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  92% { transform: rotate(-7deg); }
+  96% { transform: rotate(0deg); }
+}
+.clapper-body { padding: 20px 24px 22px; }
+.clapper-name {
+  font-family: "VT323", monospace;
+  font-size: clamp(2rem, 4.6vw, 3.3rem);
+  line-height: 1;
+  color: #ff3b1f;
+  text-shadow: 0 0 8px rgba(255, 77, 46, 0.75), 0 0 22px rgba(255, 77, 46, 0.4);
+  background: #0a0806;
+  border: 2px solid #3a322a;
+  border-radius: 8px;
+  padding: 10px 14px 6px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.clapper-row {
+  font-family: var(--font-body);
+  color: #fffdf8;
+  font-weight: 700;
+  border-bottom: 2px solid #3a322a;
+  padding: 9px 4px 7px;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.clapper-row-big {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+.clapper-row-dim { color: #b9b3a7; border-bottom: none; padding-bottom: 0; font-weight: 500; }
+
+/* ============ CLIENT LOGO STRIP (quiet) ============ */
+.client-strip { margin-top: 56px; text-align: center; }
+.client-strip-label {
+  display: block;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.18em; opacity: 0.45; margin-bottom: 18px;
+}
+.client-logos {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  column-gap: 28px; row-gap: 10px;
+}
+.client-logos span {
+  font-family: var(--font-display);
+  font-size: 0.82rem; letter-spacing: 0.06em;
+  color: var(--ink); opacity: 0.38;
+  transition: opacity 0.2s ease;
+}
+.client-logos span:hover { opacity: 1; }
 
 /* ============ MARQUEE ============ */
 .marquee {
@@ -347,4 +427,9 @@ a.chip:hover { transform: translateY(-3px) rotate(-1deg); }
 
 @media (hover: none) {
   .hero-hint { display: none; }
+}
+
+@media (max-width: 900px) {
+  .clapper { transform: none; }
+  .clapper-name { white-space: normal; font-size: 1.9rem; }
 }
