@@ -645,3 +645,6 @@ a { color: var(--blue); }
 .about-stats .stat-num { font-size: 2.1rem; min-width: 76px; }
 .about-stats .stat-label { font-size: 0.92rem; }
 .about-stats .stat-foot { padding-top: 10px; font-size: 0.75rem; }
+
+/* remove contact heading shadow */
+.contact-big { text-shadow: none; }
