@@ -233,14 +233,14 @@ function buildCharacter() {
   // hands gripping the pole
   const lerp = (a, b, t) => new THREE.Vector3().lerpVectors(a, b, t);
   const handL = lerp(poleStart, poleEnd, 0.10);
-  const handR = lerp(poleStart, poleEnd, 0.34);
+  const handR = lerp(poleStart, poleEnd, 0.20);
   boomRig.add(sphere(0.14, mat('hands'), handL.x, handL.y, handL.z));
   boomRig.add(sphere(0.14, mat('hands'), handR.x, handR.y, handR.z));
   // articulated arms: shoulder -> elbow -> hand, clear of the torso
   const shoulderL = V(-0.60, 1.98, 0.05);
   const shoulderR = V(0.60, 1.98, 0.05);
   const elbowL = V(-0.90, 1.60, 0.30);
-  const elbowR = V(0.54, 2.44, 0.40);
+  const elbowR = V(0.52, 1.96, 0.44);
   boomRig.add(limb(shoulderL, elbowL, 0.13, mat('sleeve')));
   boomRig.add(limb(elbowL, handL, 0.115, mat('sleeve')));
   boomRig.add(limb(shoulderR, elbowR, 0.13, mat('sleeve')));
