@@ -567,3 +567,15 @@ a { color: var(--blue); }
 
 /* custom service icons */
 .service-icon svg { width: 58px; height: 58px; display: block; }
+
+/* edu full list */
+.edu-list { list-style: none; display: grid; gap: 10px; max-width: 760px; }
+.edu-list li { font-size: 1rem; font-weight: 500; padding-left: 22px; position: relative; }
+.edu-list li::before { content: "\25B8"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+/* contact tweaks */
+.contact-big { color: var(--navy); text-shadow: none; }
+.section-contact .client-strip { margin-top: 64px; }
+
+/* bigger service icons */
+.service-icon svg { width: 74px; height: 74px; }
