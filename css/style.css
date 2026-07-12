@@ -652,3 +652,8 @@ a { color: var(--blue); }
 /* larger service icons */
 .service-icon svg { width: 92px; height: 92px; }
 .service-icon { font-size: 2.6rem; margin-bottom: 16px; }
+
+/* service icons: bigger, centered */
+.service-icon svg { width: 110px; height: 110px; }
+.service-icon { font-size: 3.2rem; display: flex; justify-content: center; margin-bottom: 18px; }
+.service-card { text-align: center; }
