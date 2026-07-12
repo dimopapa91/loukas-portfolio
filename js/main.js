@@ -207,22 +207,21 @@ function buildCharacter() {
   brim.rotation.x = 0.12;
   headGroup.add(brim);
   // headphones — band + ear cups
-  const band = new THREE.Mesh(new THREE.TorusGeometry(0.44, 0.045, 10, 24, Math.PI), mat('headphones'));
-  band.position.y = 0.06;
-  band.rotation.z = Math.PI; // arc over the top
+  const band = new THREE.Mesh(new THREE.TorusGeometry(0.53, 0.05, 10, 26, Math.PI), mat('headphones'));
+  band.position.y = 0.10;
   headGroup.add(band);
-  [-0.44, 0.44].forEach((x) => {
-    const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.1, 16), mat('earpad'));
+  [-0.53, 0.53].forEach((x) => {
+    const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.13, 16), mat('earpad'));
     cup.rotation.z = Math.PI / 2;
-    cup.position.set(x, 0, 0);
+    cup.position.set(x, -0.03, 0);
     headGroup.add(addOutline(cup, 1.08));
   });
   g.add(headGroup);
 
   /* --- boom rig: pole + windshield + arms + hands (sways as one) --- */
   boomRig = new THREE.Group();
-  const poleStart = V(-0.55, 1.95, 0.3);
-  const poleEnd = V(0.55, 4.35, 0.1);
+  const poleStart = V(-0.85, 1.80, 0.38);
+  const poleEnd = V(0.5, 4.3, 0.12);
   boomRig.add(limb(poleStart, poleEnd, 0.035, mat('pole'), false));
   // windshield (dead cat) at the tip
   const wind = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 0.35, 6, 14), mat('windshield'));
@@ -233,13 +232,21 @@ function buildCharacter() {
   boomRig.add(addOutline(wind, 1.07));
   // hands gripping the pole
   const lerp = (a, b, t) => new THREE.Vector3().lerpVectors(a, b, t);
-  const handL = lerp(poleStart, poleEnd, 0.08);
-  const handR = lerp(poleStart, poleEnd, 0.3);
-  boomRig.add(sphere(0.13, mat('hands'), handL.x, handL.y, handL.z));
-  boomRig.add(sphere(0.13, mat('hands'), handR.x, handR.y, handR.z));
-  // arms from shoulders to hands
-  boomRig.add(limb(V(-0.52, 2.05, 0), handL, 0.13, mat('sleeve')));
-  boomRig.add(limb(V(0.52, 2.05, 0), handR, 0.13, mat('sleeve')));
+  const handL = lerp(poleStart, poleEnd, 0.10);
+  const handR = lerp(poleStart, poleEnd, 0.34);
+  boomRig.add(sphere(0.14, mat('hands'), handL.x, handL.y, handL.z));
+  boomRig.add(sphere(0.14, mat('hands'), handR.x, handR.y, handR.z));
+  // articulated arms: shoulder -> elbow -> hand, clear of the torso
+  const shoulderL = V(-0.60, 1.98, 0.05);
+  const shoulderR = V(0.60, 1.98, 0.05);
+  const elbowL = V(-0.90, 1.60, 0.30);
+  const elbowR = V(0.54, 2.44, 0.40);
+  boomRig.add(limb(shoulderL, elbowL, 0.13, mat('sleeve')));
+  boomRig.add(limb(elbowL, handL, 0.115, mat('sleeve')));
+  boomRig.add(limb(shoulderR, elbowR, 0.13, mat('sleeve')));
+  boomRig.add(limb(elbowR, handR, 0.115, mat('sleeve')));
+  boomRig.add(sphere(0.125, mat('sleeve'), elbowL.x, elbowL.y, elbowL.z));
+  boomRig.add(sphere(0.125, mat('sleeve'), elbowR.x, elbowR.y, elbowR.z));
   g.add(boomRig);
 
   /* --- sound rings pulsing from the mic --- */
