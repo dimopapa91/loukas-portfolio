@@ -648,3 +648,7 @@ a { color: var(--blue); }
 
 /* remove contact heading shadow */
 .contact-big { text-shadow: none; }
+
+/* larger service icons */
+.service-icon svg { width: 92px; height: 92px; }
+.service-icon { font-size: 2.6rem; margin-bottom: 16px; }
