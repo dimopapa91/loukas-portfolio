@@ -497,3 +497,14 @@ if (tcClock) {
   tickTC();
   setInterval(tickTC, 1000 / FPS);
 }
+
+/* Shrink nav on scroll */
+const navEl = document.querySelector('.nav');
+if (navEl) {
+  let navTick = false;
+  const updateNav = () => { navEl.classList.toggle('nav-compact', window.scrollY > 40); navTick = false; };
+  window.addEventListener('scroll', () => {
+    if (!navTick) { navTick = true; requestAnimationFrame(updateNav); }
+  }, { passive: true });
+  updateNav();
+}

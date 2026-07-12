@@ -631,3 +631,17 @@ a { color: var(--blue); }
 /* brand icons in chips */
 .chip { display: inline-flex; align-items: center; gap: 8px; }
 .chip img { height: 15px; width: auto; display: block; }
+
+/* shrinking nav on scroll */
+.nav { transition: padding 0.25s ease; }
+.nav.nav-compact { padding-top: 6px; padding-bottom: 6px; }
+.nav.nav-compact .nav-logo { font-size: 1.05rem; }
+.nav.nav-compact .btn-small { padding: 6px 14px; font-size: 0.78rem; }
+.nav.nav-compact .bw-toggle { width: 27px; height: 27px; }
+
+/* compact about stats card */
+.about-stats { padding: 20px; gap: 12px; }
+.about-photo { aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 22%; }
+.about-stats .stat-num { font-size: 2.1rem; min-width: 76px; }
+.about-stats .stat-label { font-size: 0.92rem; }
+.about-stats .stat-foot { padding-top: 10px; font-size: 0.75rem; }
