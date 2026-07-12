@@ -90,7 +90,7 @@ const COLORS = {
   bag: 0x1D4ED8,
   bagDark: 0x172554,
   pole: 0x8a8f98,
-  windshield: 0xb9b3a7,
+  windshield: 0x4B5563,
   hands: 0xf0b489,
   ring: 0x2563EB,
 };
@@ -222,14 +222,29 @@ function buildCharacter() {
   boomRig = new THREE.Group();
   const poleStart = V(-0.85, 1.80, 0.38);
   const poleEnd = V(0.5, 4.3, 0.12);
-  boomRig.add(limb(poleStart, poleEnd, 0.035, mat('pole'), false));
-  // windshield (dead cat) at the tip
-  const wind = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 0.35, 6, 14), mat('windshield'));
-  wind.position.copy(poleEnd);
+  // telescoping pole: three segments, joint collars, foam grip
   const poleDir = new THREE.Vector3().subVectors(poleEnd, poleStart).normalize();
-  wind.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), poleDir);
-  wind.position.add(poleDir.clone().multiplyScalar(0.25));
-  boomRig.add(addOutline(wind, 1.07));
+  const pv = (t) => new THREE.Vector3().lerpVectors(poleStart, poleEnd, t);
+  boomRig.add(limb(poleStart, pv(0.42), 0.048, mat('pole'), false));
+  boomRig.add(limb(pv(0.42), pv(0.74), 0.037, mat('pole'), false));
+  boomRig.add(limb(pv(0.74), poleEnd, 0.028, mat('pole'), false));
+  boomRig.add(limb(poleStart, pv(0.15), 0.061, mat('boots'), false)); // grip
+  [0.42, 0.74].forEach((t) => {
+    const p = pv(t);
+    boomRig.add(limb(
+      p.clone().addScaledVector(poleDir, -0.055),
+      p.clone().addScaledVector(poleDir, 0.055),
+      0.06, mat('boots'), false));
+  });
+  // blimp windshield, angled toward horizontal like a real rig
+  const blimpDir = new THREE.Vector3(1, 0.34, -0.05).normalize();
+  const blimpCenter = poleEnd.clone().addScaledVector(blimpDir, 0.24).add(new THREE.Vector3(0, 0.12, 0));
+  const wind = new THREE.Mesh(new THREE.CapsuleGeometry(0.21, 0.52, 8, 18), mat('windshield'));
+  wind.position.copy(blimpCenter);
+  wind.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), blimpDir);
+  boomRig.add(addOutline(wind, 1.05));
+  // shockmount bracket connecting pole tip to blimp underside
+  boomRig.add(limb(poleEnd, blimpCenter.clone().addScaledVector(blimpDir, -0.18), 0.032, mat('boots'), false));
   // hands gripping the pole
   const lerp = (a, b, t) => new THREE.Vector3().lerpVectors(a, b, t);
   const handL = lerp(poleStart, poleEnd, 0.10);
@@ -250,7 +265,7 @@ function buildCharacter() {
   g.add(boomRig);
 
   /* --- sound rings pulsing from the mic --- */
-  const micTip = poleEnd.clone().add(poleDir.clone().multiplyScalar(0.45));
+  const micTip = blimpCenter.clone().addScaledVector(blimpDir, 0.52);
   for (let i = 0; i < 3; i++) {
     const ring = new THREE.Mesh(
       new THREE.TorusGeometry(0.28, 0.025, 8, 32),
