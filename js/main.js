@@ -488,10 +488,12 @@ counters.forEach((el) => counterObserver.observe(el));
 const tcClock = document.getElementById('tcClock');
 if (tcClock) {
   const pad = (n) => String(n).padStart(2, '0');
+  const FPS = 24;
   const tickTC = () => {
     const d = new Date();
-    tcClock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    const ff = Math.floor((d.getMilliseconds() / 1000) * FPS);
+    tcClock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}:${pad(ff)}`;
   };
   tickTC();
-  setInterval(tickTC, 1000);
+  setInterval(tickTC, 1000 / FPS);
 }
