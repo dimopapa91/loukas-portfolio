@@ -627,3 +627,7 @@ a { color: var(--blue); }
 .clapper-row-dim { color: #CBD5E1; font-size: 1rem; font-weight: 600; }
 .hero-tag { font-size: 1.12rem; font-weight: 500; line-height: 1.65; max-width: 52ch; }
 .hero-hint { font-size: 0.9rem; opacity: 0.7; }
+
+/* brand icons in chips */
+.chip { display: inline-flex; align-items: center; gap: 8px; }
+.chip img { height: 15px; width: auto; display: block; }
