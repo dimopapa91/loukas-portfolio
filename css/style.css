@@ -594,3 +594,18 @@ a { color: var(--blue); }
 .clapper-name { margin-bottom: 8px; }
 .clapper-row { padding: 14px 4px 12px; }
 .clapper-row-dim { padding-top: 14px; }
+
+/* real client logos — muted until hover */
+.client-logos { align-items: center; }
+.client-logos img {
+  height: 22px; width: auto; max-width: 120px; display: block;
+  filter: grayscale(1); opacity: 0.5;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+.client-logos img:hover { filter: none; opacity: 1; }
+
+/* clapper letter spacing back to original */
+.clapper-body { padding: 20px 24px 22px; }
+.clapper-name { margin-bottom: 0; }
+.clapper-row { padding: 9px 4px 7px; }
+.clapper-row-dim { padding-top: 9px; padding-bottom: 0; }
