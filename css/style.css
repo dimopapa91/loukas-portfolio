@@ -501,3 +501,66 @@ a { color: var(--blue); }
 @media (max-width: 900px) {
   .gear-wrap { position: static; order: -1; margin-bottom: 10px; }
 }
+
+/* ============ REFINEMENT PASS: navy + warmth + motif ============ */
+:root { --navy: #0F172A; --gold: #D4A017; --card-tint: #F8FBFF; --almost-white: #FCFDFF; }
+
+/* 1. deep navy strategically */
+.nav-logo, .nav-links a { color: var(--navy); }
+.section-title, .work-card h3, .service-card h3, .edu-strip h3 { color: var(--navy); }
+.btn-small { background: var(--navy); }
+.btn-small:hover { background: #1E293B; }
+
+/* 6. warm accent — sparingly */
+.nav-links a::after { background: var(--gold); }
+.badge-red { background: var(--gold); color: var(--navy); }
+.stat-num::after { color: var(--gold); }
+.filter-btn.is-active { box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); }
+
+/* 2 + 8. about softness */
+#about { position: relative; }
+#about::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: var(--almost-white);
+}
+.about-stats { background: var(--card-tint); }
+
+/* 3. work cards pop */
+.work-card { border: 1.5px solid #DCE7F7; }
+
+/* 4. section numbers as signature */
+.section-num {
+  background: var(--blue-dark);
+  box-shadow: 0 5px 14px rgba(29, 78, 216, 0.30);
+}
+
+/* 5. living buttons */
+.btn { box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18); }
+.btn:hover { box-shadow: 0 10px 26px rgba(37, 99, 235, 0.28); }
+.btn-ghost { box-shadow: none; }
+.btn-small { box-shadow: 0 6px 16px rgba(15, 23, 42, 0.22); }
+
+/* 7. hero depth */
+.hero {
+  background: radial-gradient(ellipse 70% 55% at 50% 42%, #EFF5FF 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* 9. navy footer — echoes the slate */
+.footer {
+  background: var(--navy); border-top: none;
+  color: #E2E8F0; padding-top: 28px; padding-bottom: 28px;
+}
+.footer span { color: #E2E8F0; }
+.footer a { color: #93C5FD; }
+.footer a:hover { color: var(--gold); }
+
+/* 10. signature motif: waveform under section titles */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 150px; height: 14px;
+  margin-top: 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='14' viewBox='0 0 150 14'%3E%3Cpolyline points='0,7 20,7 27,2 35,12 43,1 51,13 59,4 66,10 72,7 150,7' fill='none' stroke='%23D4A017' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat left center;
+}
+.contact-big { color: var(--blue); }
+.section-contact .contact-big + .contact-sub { margin-top: 26px; }
