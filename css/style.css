@@ -564,3 +564,6 @@ a { color: var(--blue); }
 }
 .contact-big { color: var(--blue); }
 .section-contact .contact-big + .contact-sub { margin-top: 26px; }
+
+/* custom service icons */
+.service-icon svg { width: 58px; height: 58px; display: block; }

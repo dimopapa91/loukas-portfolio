@@ -483,3 +483,15 @@ const counterObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 counters.forEach((el) => counterObserver.observe(el));
+
+/* Live time-of-day on the timecode icon (25fps frame counter) */
+const tcClock = document.getElementById('tcClock');
+if (tcClock) {
+  const pad = (n) => String(n).padStart(2, '0');
+  const tickTC = () => {
+    const d = new Date();
+    tcClock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  };
+  tickTC();
+  setInterval(tickTC, 1000);
+}
