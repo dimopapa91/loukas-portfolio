@@ -80,19 +80,19 @@ const canvas = document.getElementById('scene');
 const COLORS = {
   skin: 0xf0b489,
   beard: 0x3d2b1f,
-  jacket: 0x2b2b33,
-  sleeve: 0x232329,
-  trousers: 0x3a3f4a,
-  boots: 0x17130f,
-  cap: 0xff4d2e,
-  headphones: 0x17130f,
-  earpad: 0x2e5bff,
-  bag: 0x2e5bff,
-  bagDark: 0x1d3db8,
+  jacket: 0x2A3342,
+  sleeve: 0x232D3C,
+  trousers: 0x3B4759,
+  boots: 0x1F2937,
+  cap: 0x2563EB,
+  headphones: 0x1F2937,
+  earpad: 0x2563EB,
+  bag: 0x1D4ED8,
+  bagDark: 0x172554,
   pole: 0x8a8f98,
   windshield: 0xb9b3a7,
   hands: 0xf0b489,
-  ring: 0xff4d2e,
+  ring: 0x2563EB,
 };
 
 let renderer, scene, camera, character, headGroup, boomRig, rings = [], pupils = [];
@@ -111,7 +111,7 @@ function mat(name) {
   if (!mats[name]) mats[name] = makeToonMaterial(COLORS[name]);
   return mats[name];
 }
-const outlineMat = new THREE.MeshBasicMaterial({ color: 0x17130f, side: THREE.BackSide });
+const outlineMat = new THREE.MeshBasicMaterial({ color: 0x1f2937, side: THREE.BackSide });
 
 function addOutline(mesh, thickness = 1.05) {
   const outline = new THREE.Mesh(mesh.geometry, outlineMat);
@@ -194,7 +194,7 @@ function buildCharacter() {
   // eyes
   [-0.16, 0.16].forEach((x) => {
     const eye = sphere(0.085, new THREE.MeshBasicMaterial({ color: 0xffffff }), x, 0.12, 0.36, false);
-    const pupil = sphere(0.04, new THREE.MeshBasicMaterial({ color: 0x17130f }), 0, 0, 0.06, false);
+    const pupil = sphere(0.04, new THREE.MeshBasicMaterial({ color: 0x1f2937 }), 0, 0, 0.06, false);
     eye.add(pupil);
     pupils.push(pupil);
     headGroup.add(eye);
@@ -258,7 +258,7 @@ function buildCharacter() {
   /* --- ground shadow --- */
   const shadow = new THREE.Mesh(
     new THREE.CircleGeometry(0.95, 32),
-    new THREE.MeshBasicMaterial({ color: 0x17130f, transparent: true, opacity: 0.14 })
+    new THREE.MeshBasicMaterial({ color: 0x1f2937, transparent: true, opacity: 0.12 })
   );
   shadow.rotation.x = -Math.PI / 2;
   shadow.position.y = 0.01;
@@ -287,7 +287,7 @@ function initThree() {
   const key = new THREE.DirectionalLight(0xffffff, 1.6);
   key.position.set(3, 6, 5);
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0x2e5bff, 0.5);
+  const rim = new THREE.DirectionalLight(0x2563eb, 0.5);
   rim.position.set(-4, 3, -3);
   scene.add(rim);
 
