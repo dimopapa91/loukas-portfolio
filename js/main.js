@@ -413,6 +413,11 @@ creditsList.innerHTML = CREDITS.map((c) => `
     <span class="credit-date">${c.date}</span>
   </li>`).join('');
 
+/* Default filter: Commercials */
+document.querySelectorAll('.credit-row').forEach((row) => {
+  row.classList.toggle('is-hidden', row.dataset.type !== 'Commercial');
+});
+
 /* Credit filters */
 document.getElementById('filters').addEventListener('click', (e) => {
   const btn = e.target.closest('.filter-btn');
