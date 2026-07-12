@@ -483,3 +483,21 @@ a { color: var(--blue); }
   .kit-layout { grid-template-columns: 1fr; }
   .kit-photo-wrap { position: static; order: -1; max-width: 420px; margin: 0 auto 10px; }
 }
+
+/* gear illustration grid */
+.gear-wrap { position: sticky; top: 100px; }
+.gear-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.gear-card {
+  background: #fff; border: var(--border); border-radius: 14px;
+  box-shadow: var(--shadow-sm); padding: 12px 12px 14px; text-align: center;
+  transition: transform 0.2s ease;
+}
+.gear-card:hover { transform: translateY(-4px); }
+.gear-card svg { width: 100%; height: auto; display: block; }
+.gear-card span {
+  font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--blue);
+}
+@media (max-width: 900px) {
+  .gear-wrap { position: static; order: -1; margin-bottom: 10px; }
+}
