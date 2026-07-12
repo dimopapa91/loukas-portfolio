@@ -584,3 +584,13 @@ a { color: var(--blue); }
 .contact-big {
   text-shadow: 0 4px 0 rgba(37, 99, 235, 0.18), 0 16px 36px rgba(15, 23, 42, 0.30);
 }
+
+/* hero spacing + uniform badges */
+.badge-red { background: var(--blue-pale); color: var(--ink); }
+.hero-badges { margin-bottom: 28px; }
+.hero-tag { margin-top: 22px; }
+.hero-ctas { margin-top: 32px; }
+.clapper-body { padding: 26px 28px 28px; }
+.clapper-name { margin-bottom: 8px; }
+.clapper-row { padding: 14px 4px 12px; }
+.clapper-row-dim { padding-top: 14px; }
